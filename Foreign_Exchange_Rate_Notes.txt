@@ -1,0 +1,14 @@
+Below are the actions i have performed to the given Assignment:
+
+> Based on the provided user story i have written 12 manual test cases which covers positive and negative scenarios
+> I have developed the framework using Cucumber
+> In this framework i have followed Behaviour Driven Development approach
+> I am generating Extent reports as well
+> Total i have developed 6 test scripts in which 3 belongs to 'Date specific Exchange rate APIs' and the remaining 3
+  belongs to 'Latest Exchange rate APIs'
+> Out of 6, 1 test case belongs to Sanity Testing and rest 5 belongs to Regression Testing
+> In TestRunner i am executing only Regression suite by updating the tags field
+> Due to the time constraint i did the response validation in normal approach, otherwise i can achieve the same using 
+  Hamcrest/JsonPath/POJO Classes   
+> For the future date API hit test case, i am verifying the resposne match with Current date (Since i am working in IST 
+  time zone i am retrieving the previous date instead of current date) 

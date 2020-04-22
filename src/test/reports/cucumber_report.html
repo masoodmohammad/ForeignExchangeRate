@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Apr 22, 2020 03:48:26 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@TestCase1</a></li>
+					<li><a href='#'>@RegressionTesting</a></li>
+					<li><a href='#'>@TestCase2</a></li>
+					<li><a href='#'>@TestCase3</a></li>
+					<li><a href='#'>@TestCase5</a></li>
+					<li><a href='#'>@TestCase6</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>29</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Date Specific Exchange Rates</span>
+						<span class='test-time'>Apr 22, 2020 03:48:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 5s+264ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Get the Foreign Exchange reference rates for Specific date</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase1</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Get the Foreign Exchange reference rates for Specific date</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api/2020-04-12"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api/2020-04-12</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"base":"EUR","rates":{"GBP":0.87565,"HKD":8.4259,"IDR":17243.21,"ILS":3.8919,"DKK":7.4657,"INR":82.9275,"CHF":1.0558,"MXN":26.0321,"CZK":26.909,"SGD":1.5479,"THB":35.665,"HRK":7.6175,"MYR":4.7136,"NOK":11.2143,"CNY":7.6709,"BGN":1.9558,"PHP":54.939,"SEK":10.9455,"PLN":4.5586,"ZAR":19.6383,"CAD":1.5265,"ISK":155.9,"BRL":5.5956,"RON":4.833,"NZD":1.8128,"TRY":7.3233,"JPY":118.33,"RUB":80.69,"KRW":1322.49,"USD":1.0867,"HUF":354.76,"AUD":1.7444},"date":"2020-04-09"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "200"</span>
+							<div class='pre'>pass :: Status Code is :: 200</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='8' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase1</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Get the Foreign Exchange reference rates for Specific date</span>
+			
+				<ul class='steps'>
+					<li test-id='9' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api/2020"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api/2020</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"error":"time data '2020' does not match format '%Y-%m-%d'"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "400"</span>
+							<div class='pre'>pass :: Status Code is :: 400</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='13' status='pass'>
+	<span class='duration right label'>0h 0m 5s+159ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Request specific exchange rates by setting the symbols parameter and date</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='14' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase2</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Request specific exchange rates by setting the symbols parameter and date</span>
+			
+				<ul class='steps'>
+					<li test-id='15' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api/2020-04-12?symbols=USD"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api/2020-04-12?symbols=USD</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"base":"EUR","rates":{"GBP":0.87565,"HKD":8.4259,"IDR":17243.21,"ILS":3.8919,"DKK":7.4657,"INR":82.9275,"CHF":1.0558,"MXN":26.0321,"CZK":26.909,"SGD":1.5479,"THB":35.665,"HRK":7.6175,"MYR":4.7136,"NOK":11.2143,"CNY":7.6709,"BGN":1.9558,"PHP":54.939,"SEK":10.9455,"PLN":4.5586,"ZAR":19.6383,"CAD":1.5265,"ISK":155.9,"BRL":5.5956,"RON":4.833,"NZD":1.8128,"TRY":7.3233,"JPY":118.33,"RUB":80.69,"KRW":1322.49,"USD":1.0867,"HUF":354.76,"AUD":1.7444},"date":"2020-04-09"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "200"</span>
+							<div class='pre'>pass :: Status Code is :: 200</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Verify the response value of "base" is "EUR"</span>
+							<div class='pre'>Actual Value is  ::EUR</div>
+							<div class='pre'>Expected Value is  ::EUR</div>
+							<div class='pre'>pass base : Expected value : EUR mathches with Actual Value : EUR</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='20' status='pass'>
+	<span class='duration right label'>0h 0m 1s+595ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Get the Foreign Exchange reference rates for Future date</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='21' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase3</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Get the Foreign Exchange reference rates for Future date</span>
+			
+				<ul class='steps'>
+					<li test-id='22' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api/2021-04-12"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api/2021-04-12</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"base":"EUR","rates":{"GBP":0.8812,"HKD":8.3987,"IDR":17001.63,"ILS":3.8522,"DKK":7.4582,"INR":83.376,"CHF":1.0517,"MXN":26.3957,"CZK":27.447,"SGD":1.551,"THB":35.269,"HRK":7.57,"MYR":4.7634,"NOK":11.4843,"CNY":7.6888,"BGN":1.9558,"PHP":55.096,"SEK":10.9543,"PLN":4.5291,"ZAR":20.5853,"CAD":1.5393,"ISK":157.8,"BRL":5.7619,"RON":4.8373,"NZD":1.8181,"TRY":7.5658,"JPY":116.39,"RUB":83.2936,"KRW":1335.34,"USD":1.0837,"HUF":355.02,"AUD":1.7266},"date":"2020-04-21"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "200"</span>
+							<div class='pre'>pass :: Status Code is :: 200</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Verify the response value of "base" is "EUR"</span>
+							<div class='pre'>Actual Value is  ::EUR</div>
+							<div class='pre'>Expected Value is  ::EUR</div>
+							<div class='pre'>pass base : Expected value : EUR mathches with Actual Value : EUR</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Verify the "date" in response matches with current date</span>
+							<div class='pre'>Actual Value is  ::2020-04-21</div>
+							<div class='pre'>Expected Value is  ::2020-04-21</div>
+							<div class='pre'>pass date : Expected value : 2020-04-21 mathches with Actual Value : 2020-04-21</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='28'>
+					<div class='test-heading'>
+						<span class='test-name'>Latest Foreign Exchange Rates</span>
+						<span class='test-time'>Apr 22, 2020 03:48:39 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='29' status='pass'>
+	<span class='duration right label'>0h 0m 0s+939ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Request specific exchange rates by setting the symbols parameter</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='30' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase5</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Request specific exchange rates by setting the symbols parameter</span>
+			
+				<ul class='steps'>
+					<li test-id='31' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api/latest?symbols=USD"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api/latest?symbols=USD</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='33' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"base":"EUR","rates":{"GBP":0.8812,"HKD":8.3987,"IDR":17001.63,"ILS":3.8522,"DKK":7.4582,"INR":83.376,"CHF":1.0517,"MXN":26.3957,"CZK":27.447,"SGD":1.551,"THB":35.269,"HRK":7.57,"MYR":4.7634,"NOK":11.4843,"CNY":7.6888,"BGN":1.9558,"PHP":55.096,"SEK":10.9543,"PLN":4.5291,"ZAR":20.5853,"CAD":1.5393,"ISK":157.8,"BRL":5.7619,"RON":4.8373,"NZD":1.8181,"TRY":7.5658,"JPY":116.39,"RUB":83.2936,"KRW":1335.34,"USD":1.0837,"HUF":355.02,"AUD":1.7266},"date":"2020-04-21"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "200"</span>
+							<div class='pre'>pass :: Status Code is :: 200</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Verify the response value of "base" is "EUR"</span>
+							<div class='pre'>Actual Value is  ::EUR</div>
+							<div class='pre'>Expected Value is  ::EUR</div>
+							<div class='pre'>pass base : Expected value : EUR mathches with Actual Value : EUR</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='36' status='pass'>
+	<span class='duration right label'>0h 0m 1s+260ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Hit the incorrect or incomplete URL</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='37' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TestCase6</span>
+				<span class='category label white-text'>@RegressionTesting</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Hit the incorrect or incomplete URL</span>
+			
+				<ul class='steps'>
+					<li test-id='38' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Set EndPointURL as "/api"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://api.ratesapi.io/api</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Set the header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Hit the API with request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"error":"time data 'api' does not match format '%Y-%m-%d'"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the status code is "400"</span>
+							<div class='pre'>pass :: Status Code is :: 400</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Verify the response value of "error" is "time data 'api' does not match format '%Y-%m-%d'"</span>
+							<div class='pre'>Actual Value is  ::time data 'api' does not match format '%Y-%m-%d'</div>
+							<div class='pre'>Expected Value is  ::time data 'api' does not match format '%Y-%m-%d'</div>
+							<div class='pre'>pass error : Expected value : time data 'api' does not match format '%Y-%m-%d' mathches with Actual Value : time data 'api' does not match format '%Y-%m-%d'</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TestCase1</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:27 PM</td>
+										<td class='linked' test-id='3'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Specific date.Get the Foreign Exchange reference rates for Specific date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:31 PM</td>
+										<td class='linked' test-id='8'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Specific date.Get the Foreign Exchange reference rates for Specific date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@RegressionTesting</span>
+						<span class='category-status right'>
+							<span class='label pass'>6</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 6</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:27 PM</td>
+										<td class='linked' test-id='3'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Specific date.Get the Foreign Exchange reference rates for Specific date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:31 PM</td>
+										<td class='linked' test-id='8'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Specific date.Get the Foreign Exchange reference rates for Specific date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:32 PM</td>
+										<td class='linked' test-id='14'>Date Specific Exchange Rates.Request specific exchange rates by setting the symbols parameter and date.Request specific exchange rates by setting the symbols parameter and date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:37 PM</td>
+										<td class='linked' test-id='21'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Future date.Get the Foreign Exchange reference rates for Future date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:39 PM</td>
+										<td class='linked' test-id='30'>Latest Foreign Exchange Rates.Request specific exchange rates by setting the symbols parameter.Request specific exchange rates by setting the symbols parameter</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 22, 2020 03:48:40 PM</td>
+										<td class='linked' test-id='37'>Latest Foreign Exchange Rates.Hit the incorrect or incomplete URL.Hit the incorrect or incomplete URL</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TestCase2</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:32 PM</td>
+										<td class='linked' test-id='14'>Date Specific Exchange Rates.Request specific exchange rates by setting the symbols parameter and date.Request specific exchange rates by setting the symbols parameter and date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TestCase3</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:37 PM</td>
+										<td class='linked' test-id='21'>Date Specific Exchange Rates.Get the Foreign Exchange reference rates for Future date.Get the Foreign Exchange reference rates for Future date</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TestCase5</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:39 PM</td>
+										<td class='linked' test-id='30'>Latest Foreign Exchange Rates.Request specific exchange rates by setting the symbols parameter.Request specific exchange rates by setting the symbols parameter</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TestCase6</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 22, 2020 03:48:40 PM</td>
+										<td class='linked' test-id='37'>Latest Foreign Exchange Rates.Hit the incorrect or incomplete URL.Hit the incorrect or incomplete URL</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>6</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>29</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Apr 22, 2020 03:48:26 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Apr 22, 2020 03:48:41 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>14,396ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@TestCase1</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@RegressionTesting</td>
+							<td>6</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TestCase2</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TestCase3</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TestCase5</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TestCase6</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 2,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 6,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 29,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
